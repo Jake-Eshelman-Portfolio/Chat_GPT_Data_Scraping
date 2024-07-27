@@ -1,0 +1,33 @@
+Task: Identify potential organizations or partners involved in beach cleanup efforts that I can join or collaborate with. A specific contact name and title is ideal, but if not possible, obtain a department or relevant team to be directed to.
+
+Keywords: ["beach cleanup organizations", "environmental conservation groups", "marine debris removal", "coastal restoration projects"]
+
+Extract:
+
+Company/Organization name
+Key contact person
+Their role
+Their contact information
+Location
+Outline factors that will qualify a promising lead:
+
+Example outline factors: "[Organization Name] is dedicated to environmental conservation and has organized multiple beach cleanup events along the coast. They are currently looking for volunteers and partnerships to expand their efforts."
+
+Output Format: Provide the data in valid JSON format, structured as follows:
+[
+    {
+        "Company": "[Organization Name]",
+        "Contact": "[Contact Person]",
+        "Role": "[Contact Role]",
+        "Phone Number": "[Contact Phone Number]",
+        "Location": "[Organization Location]",
+        "Factors to Qualify Lead": "[Specific reasons why this lead is promising, including a link to the organization's website if available]"
+    }
+    // Repeat for each contact
+]
+
+Important:
+Ensure the contact role and phone number are included. If not available, find another lead with this information.
+Provide 10 contacts
+Do not include duplicate contacts in the same list
+Ensure that the contacts are currently associated with the organization, not just mentioned in past associations.
