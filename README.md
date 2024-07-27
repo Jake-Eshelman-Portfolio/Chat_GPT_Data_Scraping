@@ -1,6 +1,11 @@
 ## Overview
 This project demonstrates how to use OpenAI's API to generate responses using the gpt-3.5-turbo model and save the output to an Excel file. It consists of a Python script that reads a prompt from a text file, sends it to the OpenAI API, and writes the response to an Excel file in a specific format.
 
+The project was generated to assist with my personal research on topics, but I am currently working to customize it to be generalizable. Future improvements include:
+1. Making the fields it returns more easily configurable
+2. Addressing problems with hallucination or adding secondary validation to information
+3. Making the prompt more customizable
+
 ## Prerequisites
 - Python 3.x
 - An OpenAI API key
