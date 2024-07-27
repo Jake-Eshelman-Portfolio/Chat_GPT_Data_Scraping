@@ -17,10 +17,11 @@ client = OpenAI(
     api_key=config.OPENAI_API_KEY
 )
 
+# Currently using gpt-3.5-turbo but can change to other model options by changing the model field to gpt-4o for example
 def get_chatgpt_response(prompt):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo", #gpt-4o
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -43,7 +44,6 @@ def write_to_excel(data, title):
     file_name = generate_file_name(title)
     file_path = os.path.join(data_path, file_name)
 
-    # Ensure the data directory exists
     os.makedirs(data_path, exist_ok=True)
 
     workbook = openpyxl.Workbook()
@@ -54,7 +54,6 @@ def write_to_excel(data, title):
     for i, header in enumerate(headers, start=1):
         sheet.cell(row=1, column=i, value=header)
 
-    # Write data
     for row_num, entry in enumerate(data, start=2):
         for col_num, header in enumerate(headers, start=1):
             sheet.cell(row=row_num, column=col_num, value=entry.get(header))
@@ -102,7 +101,7 @@ def main():
 
                 # Create a Tkinter root window (invisible) for the popup
                 root = tk.Tk()
-                root.withdraw()  # Hide the main window
+                root.withdraw()  
                 messagebox.showinfo("Success", f"Data successfully saved to {file_path}")
                 root.destroy()
             else:

@@ -60,7 +60,6 @@ Important:
     # Schedule the window to close after 5 seconds
     root.after(5000, root.destroy)
 
-# GUI setup
 root = tk.Tk()
 root.title("Custom Prompt Generator")
 
