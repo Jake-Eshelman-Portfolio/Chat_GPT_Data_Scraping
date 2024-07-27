@@ -15,8 +15,7 @@ Ongoing Work:
 1. Making the fields it returns more easily configurable. Currently this must be done through modifying the prompt.txt
 2. Addressing problems with hallucination or adding secondary validation to information
 3. Making the prompt more customizable
-4. Allow better output format as currently new outputs overwrite old outputs.
-5. Expand the script to enable handling over larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
+4. Expand the script to enable handling over larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
 
 ## Prerequisites
 - Python 3.x
