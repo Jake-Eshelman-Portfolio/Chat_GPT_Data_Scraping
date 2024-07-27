@@ -1,8 +1,12 @@
-from openai import OpenAI
-import openpyxl
-import sys
+import subprocess
+import time
 import os
 import json
+from openai import OpenAI
+import openpyxl
+import tkinter as tk
+from tkinter import messagebox
+import sys
 
 config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'config'))
 sys.path.append(config_path)
@@ -16,7 +20,7 @@ client = OpenAI(
 def get_chatgpt_response(prompt):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo", #gpt-4, gpt-3.5-turbo
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -28,8 +32,7 @@ def get_chatgpt_response(prompt):
 
 # Sanitize the title to make it a valid filename
 def generate_file_name(title):
-
-    title = title.replace(' ', '_').replace('/', '_').replace('\\', '_') 
+    title = title.replace(' ', '_').replace('/', '_').replace('\\', '_')
     return f"{title}.xlsx"
 
 # Write responses to an Excel file
@@ -46,35 +49,48 @@ def write_to_excel(data, title):
     workbook = openpyxl.Workbook()
     sheet = workbook.active
 
-    sheet["A1"] = "Company"
-    sheet["B1"] = "Contact"
-    sheet["C1"] = "Role"
-    sheet["D1"] = "Phone Number"
-    sheet["E1"] = "Location"
-    sheet["F1"] = "Factors to Qualify Lead"
+    # Use the first entry to extract headers
+    headers = data[0].keys()
+    for i, header in enumerate(headers, start=1):
+        sheet.cell(row=1, column=i, value=header)
 
-    for i, entry in enumerate(data, start=2):
-        sheet[f"A{i}"] = entry["Company"]
-        sheet[f"B{i}"] = entry["Contact"]
-        sheet[f"C{i}"] = entry["Role"]
-        sheet[f"D{i}"] = entry["Phone Number"]
-        sheet[f"E{i}"] = entry["Location"]
-        sheet[f"F{i}"] = entry["Factors to Qualify Lead"]
+    # Write data
+    for row_num, entry in enumerate(data, start=2):
+        for col_num, header in enumerate(headers, start=1):
+            sheet.cell(row=row_num, column=col_num, value=entry.get(header))
 
     workbook.save(file_path)
     print(f"Data saved to {file_path}")
+    return file_path
 
 def main():
-    # Read the prompt from a text file
-    script_path = os.path.dirname(os.path.abspath(__file__))
-    prompt_path = os.path.abspath(os.path.join(script_path, '..', 'prompt.txt'))
+    # Determine the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    generate_prompt_path = os.path.join(script_dir, 'generate_prompt.py')
+    
+    # Call the generate_prompt.py script to generate the prompt
+    if not os.path.exists(generate_prompt_path):
+        print(f"Error: {generate_prompt_path} does not exist.")
+        return
+
+    subprocess.run(['python', generate_prompt_path])
+
+    # Define the prompt file path
+    prompt_path = os.path.abspath(os.path.join(script_dir, '..', 'prompt.txt'))
+
+    # Wait for the prompt file to be created by the GUI script
+    while not os.path.exists(prompt_path):
+        print("Waiting for prompt.txt to be generated...")
+        time.sleep(1)
+
+    # Read the generated prompt
     with open(prompt_path, 'r') as file:
         prompt = file.read()
 
     data = []
     response = get_chatgpt_response(prompt)
 
-    # Response must be a JSON string that can be converted into a list of dictionaries
+    # Process the response and save it to an Excel file
     try:
         response_list = json.loads(response.strip())
         if isinstance(response_list, list) and len(response_list) > 0:
@@ -82,7 +98,13 @@ def main():
             if "Title" in title_entry:
                 title = title_entry["Title"]
                 data = response_list[1:]
-                write_to_excel(data, title)
+                file_path = write_to_excel(data, title)
+
+                # Create a Tkinter root window (invisible) for the popup
+                root = tk.Tk()
+                root.withdraw()  # Hide the main window
+                messagebox.showinfo("Success", f"Data successfully saved to {file_path}")
+                root.destroy()
             else:
                 print("Error: 'Title' field is missing in the response.")
         else:
