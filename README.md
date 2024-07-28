@@ -15,7 +15,6 @@ Ongoing Work:
 1. Addressing problems with hallucination or adding secondary validation to information
 2. Expand the script to enable handling larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
 3. Improving information specificty. For instance it often provides just a link to a company website instead of a relevent page of that website.
-4. There seems to be a small error in the generated prompt where the task is adding twice. This doesnt effect the outcome but may increase cost as it increases the query tokens per prompt and should be fixed.
 
 ## Prerequisites
 - openai==0.10.2: For interacting with the OpenAI API. Install using `pip install openai`.
