@@ -17,6 +17,7 @@ Ongoing Work:
 3. Improving information specificty. For instance it often provides just a link to a company website instead of a relevent page of that website.
 
 ## Prerequisites
+- Python 3.x
 - openai==0.10.2: For interacting with the OpenAI API. Install using `pip install openai`.
 - openpyxl==3.0.9: For reading and writing Excel files. Install using `pip install openpyxl`.
 - An OpenAI API key (https://platform.openai.com/playground)
@@ -42,10 +43,10 @@ Ongoing Work:
 ## Usage
 1. Navigate to the scripts folder and run: `python main.py`
 2. You will be provided a GUI to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
-   <br>Sample: <img src="images/sample_prompt_embedded_software.png" alt="Sample Prompt for Embedded Software" width="300"/>
+   <br>Sample: <img src="images/sample_prompt_model_rockets.png" alt="Sample Prompt for Embedded Software" width="300"/>
    - Note: In the root directory there is a `sample_prompt.txt` file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
 3. After closing the GUI, or after it expires (5 seconds after generating the prompt), the ChatGPT API will be called using your prompt, and the script will populate an Excel sheet in the data directory with a name related to the provided task.
-   <br>Sample: <img src="images/embedded_software_job_output.png" alt="Sample Prompt for Embedded Software Output" width="400"/>
+   <br>Sample: <img src="images/sample_model_rocket_output.png" alt="Sample Prompt for Embedded Software Output" width="400"/>
 
 ## Error Handling
 - If the response is not a valid JSON string or not a list of dictionaries, the script will print an error message and exit.
