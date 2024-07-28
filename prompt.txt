@@ -1,26 +1,26 @@
-Task: Identify organizations related to model rockets and rocket testing near st. louis missouri that i can join for weekend hobby work
+Task: find me cities that i could move to in united states that have young people, rock climbing, engineering, latin dance as a 29 yr old
 
-Keywords: ['model rockets', 'engineering', 'aerospace', 'club']
+Keywords: ['rock climbing', 'engineering', 'dance', 'young people']
 
 Extract:
 
-['Organization', 'Website Link', 'Summary']
+['Names of Citie', 'Weight from 1-10 how good a fit the city is', 'Reasoning for weight']
 
 Output Format: Provide the data in valid JSON format, structured as follows:
 [
     {"Title": "A title summarized from the task"},
     {
-        "Organization": "[response]",
-        "Website Link": "[response]",
-        "Summary": "[response]"
+        "Names of Citie": "[response]",
+        "Weight from 1-10 how good a fit the city is": "[response]",
+        "Reasoning for weight": "[response]"
     },
     {
-        "Organization": "[response]",
-        "Website Link": "[response]",
-        "Summary": "[response]"
+        "Names of Citie": "[response]",
+        "Weight from 1-10 how good a fit the city is": "[response]",
+        "Reasoning for weight": "[response]"
     }
 ]
 
 Important:
-generate 5 responses
-do not include duplicates
+give 5 responses
+list them in descending order with the best fit at the top
