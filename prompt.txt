@@ -1,0 +1,27 @@
+Task: find organizations related to space near st.louis that i can use to get involved with model rockets
+
+Keywords: ['space', 'model rockets', 'test flights', 'engineering']
+
+Extract:
+
+['Organization', 'Website Link', 'Email', 'Summary']
+
+Output Format: Provide the data in valid JSON format, structured as follows:
+[
+    {"Title": "A title summarized from the task"},
+    {
+        "Organization": "[response]",
+        "Website Link": "[response]",
+        "Email": "[response]",
+        "Summary": "[response]"
+    },
+    {
+        "Organization": "[response]",
+        "Website Link": "[response]",
+        "Email": "[response]",
+        "Summary": "[response]"
+    }
+]
+
+Important:
+generate 3 responses

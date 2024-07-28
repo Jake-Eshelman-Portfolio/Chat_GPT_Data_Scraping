@@ -24,7 +24,6 @@ def generate_prompt():
 
     # Formatting the prompt
     prompt = f"""Task: {action} {subject} {purpose}
-{subject} {purpose}
 
 Keywords: {keywords.splitlines()}
 
