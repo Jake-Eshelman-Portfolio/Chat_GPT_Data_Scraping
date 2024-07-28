@@ -23,8 +23,8 @@ Ongoing Work:
 ## Installation
 
 1. **Clone the repository**:
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone repository-url
+   cd repository-directory
    
 2. **Set up the virtual environment** (optional):
    python -m venv venv
@@ -36,7 +36,7 @@ Ongoing Work:
 4. **Set up the configuration**:
    - Create a .env file in the root directory in the format: 
    OPENAI_API_KEY=your_API_key
-   IMPORTANT -- DO NOT REVEAL YOUR API KEY AS IT WILL GIVE OTHERS ACCESS TO YOUR ACCOUNT. 
+   # IMPORTANT -- DO NOT REVEAL YOUR API KEY AS IT WILL GIVE OTHERS ACCESS TO YOUR OPENAI ACCOUNT. 
    - Ensure that it is placed only in the .env file you create.
 
 ## Usage
