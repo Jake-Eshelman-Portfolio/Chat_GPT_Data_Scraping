@@ -1,10 +1,10 @@
-Task: find organizations related to space near st.louis that i can use to get involved with model rockets
+Task: Identify organizations related to model rockets and rocket testing near st. louis missouri that i can join for weekend hobby work
 
-Keywords: ['space', 'model rockets', 'test flights', 'engineering']
+Keywords: ['model rockets', 'engineering', 'aerospace', 'club']
 
 Extract:
 
-['Organization', 'Website Link', 'Email', 'Summary']
+['Organization', 'Website Link', 'Summary']
 
 Output Format: Provide the data in valid JSON format, structured as follows:
 [
@@ -12,16 +12,15 @@ Output Format: Provide the data in valid JSON format, structured as follows:
     {
         "Organization": "[response]",
         "Website Link": "[response]",
-        "Email": "[response]",
         "Summary": "[response]"
     },
     {
         "Organization": "[response]",
         "Website Link": "[response]",
-        "Email": "[response]",
         "Summary": "[response]"
     }
 ]
 
 Important:
-generate 3 responses
+generate 5 responses
+do not include duplicates
