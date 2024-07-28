@@ -101,7 +101,6 @@ def main():
 
         # Call OpenAI with the given model and prompt
         response = get_chatgpt_response(prompt, model)
-        print(f"Response: {response}")
 
     except Exception as e:
         print(f"Error parsing model or prompt: {e}")

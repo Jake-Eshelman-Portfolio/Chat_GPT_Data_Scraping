@@ -15,7 +15,6 @@ def generate_prompt():
         messagebox.showerror("Input Error", "Action, Subject, Purpose, and Headers are required fields.")
         return
 
-    # Format headers for JSON structure
     header_fields = ""
     for header in headers:
         header_fields += f'        "{header}": "[response]",\n'
@@ -23,7 +22,6 @@ def generate_prompt():
     # Remove trailing comma from the last header field
     header_fields = header_fields.rstrip(",\n")
 
-    # Formatting the prompt
     prompt = f"""Task: {action} {subject} {purpose}
 
 Keywords: {keywords.splitlines()}
@@ -60,14 +58,12 @@ Important:
         f.write(prompt)
     messagebox.showinfo("Success", f"Prompt saved to {prompt_file_path}")
 
-    # Schedule the window to close after 5 seconds
+    # Schedule the window to close after 5 seconds to stop from blocking
     root.after(5000, root.destroy)
 
-# GUI setup
 root = tk.Tk()
 root.title("Custom Prompt Generator")
 
-# Task Section
 task_frame = tk.LabelFrame(root, text="Task (Action / Subject / Purpose)", padx=10, pady=10)
 task_frame.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky="ew")
 
