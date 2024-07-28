@@ -1,12 +1,12 @@
-Task: find bakery st louis
+Task: find business about phones near moscow
 
-Keywords: ['bread']
+Keywords: ['phones']
 
 Extract:
 
 ['business']
 
-Model: gpt-4o
+Model: gpt-4-turbo
 
 Output Format: Provide the data in valid JSON format, structured as follows:
 [
@@ -20,4 +20,4 @@ Output Format: Provide the data in valid JSON format, structured as follows:
 ]
 
 Important:
-3 resp
+3 response

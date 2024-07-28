@@ -24,7 +24,6 @@ def extract_json_from_response(response):
         return response[start:end]
     return None
 
-# Currently using gpt-3.5-turbo but can change to other model options by changing the model field to gpt-4o for example
 def get_chatgpt_response(prompt, model):
     try:
         response = client.chat.completions.create(
@@ -70,7 +69,6 @@ def write_to_excel(data, title):
     return file_path
 
 def main():
-    # Determine the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
     generate_prompt_path = os.path.join(script_dir, 'generate_prompt.py')
     
@@ -81,7 +79,6 @@ def main():
 
     subprocess.run(['python', generate_prompt_path])
 
-    # Define the prompt file path
     prompt_path = os.path.abspath(os.path.join(script_dir, '..', 'prompt.txt'))
 
     # Wait for the prompt file to be created by the GUI script
@@ -89,7 +86,6 @@ def main():
         print("Waiting for prompt.txt to be generated...")
         time.sleep(1)
 
-    # Read the generated prompt
     with open(prompt_path, 'r') as file:
         prompt_content = file.read()
 
@@ -97,9 +93,8 @@ def main():
     try:
         model_line = next(line for line in prompt_content.splitlines() if line.startswith("Model:"))
         model = model_line.split("Model: ")[1].strip()
-        prompt = prompt_content.split("Task: ")[1].strip()  # Adjust according to your prompt structure
+        prompt = prompt_content.split("Task: ")[1].strip() 
 
-        # Call OpenAI with the given model and prompt
         response = get_chatgpt_response(prompt, model)
 
     except Exception as e:
