@@ -42,10 +42,10 @@ Ongoing Work:
 ## Usage
 1. Navigate to the scripts folder and run: `python main.py`
 2. You will be provided a GUI to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
-   <br>Sample: <img src="images/sample_prompt_embedded_software.png" alt="Sample Prompt for Embedded Software" width="300"/>
+   <br>Sample: <img src="images/sample_prompt_model_rockets.png" alt="Sample Prompt for Embedded Software" width="300"/>
    - Note: In the root directory there is a `sample_prompt.txt` file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
 3. After closing the GUI, or after it expires (5 seconds after generating the prompt), the ChatGPT API will be called using your prompt, and the script will populate an Excel sheet in the data directory with a name related to the provided task.
-   <br>Sample: <img src="images/embedded_software_job_output.png" alt="Sample Prompt for Embedded Software Output" width="400"/>
+   <br>Sample: <img src="images/sample_model_rocket_output.png" alt="Sample Prompt for Embedded Software Output" width="400"/>
 
 ## Error Handling
 - If the response is not a valid JSON string or not a list of dictionaries, the script will print an error message and exit.
