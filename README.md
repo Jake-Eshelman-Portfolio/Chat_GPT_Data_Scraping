@@ -17,6 +17,7 @@ Ongoing Work:
 3. Improving information specificty. For instance it often provides just a link to a company website instead of a relevent page of that website.
 
 ## Prerequisites
+- Python 3.x
 - openai==0.10.2: For interacting with the OpenAI API. Install using `pip install openai`.
 - openpyxl==3.0.9: For reading and writing Excel files. Install using `pip install openpyxl`.
 - An OpenAI API key (https://platform.openai.com/playground)
