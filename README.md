@@ -1,5 +1,5 @@
 ## Overview
-This project demonstrates how to use OpenAI's API to generate responses using the gpt-3.5-turbo model and save the output to an Excel file. It consists of a Python script that reads a prompt from a text file, sends it to the OpenAI API, and writes the response to an Excel file in a specific format. ChatGPT can make mistakes, be sure to validate important info. 
+This project demonstrates how to use OpenAI's API to generate responses using the gpt-3.5-turbo model and save the output to an Excel file. It provides the user with a GUI to generate a prompt which it then sends to the OpenAI API, and writes the response to an Excel file. ChatGPT can make mistakes, be sure to validate important info. 
 
 The project was generated to assist with my personal research on topics, but I am currently working to customize it to be generalizable. Potentially useful topics to use it for:
 1. Identifying potential business partnership collaborators
@@ -13,7 +13,7 @@ The project was generated to assist with my personal research on topics, but I a
 
 Ongoing Work:
 1. Addressing problems with hallucination or adding secondary validation to information
-2. Expand the script to enable handling over larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
+2. Expand the script to enable handling larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
 
 ## Prerequisites
 - openai==0.10.2: For interacting with the OpenAI API. Install using `pip install openai`.
@@ -41,10 +41,10 @@ Ongoing Work:
 
 ## Usage
 1. Navigate to the scripts folder and run: python main.py
-2. You will be provided a gui to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
+2. You will be provided a GUI to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
    Sample: ![Sample Prompt for Embedded Software](images/sample_prompt_embedded_software.png)
    - Note: In the root directory there is a sample_prompt.txt file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
-3. After closing the gui, or after it expires (5 seconds after generating prompt) the chatGPT API 
+3. After closing the GUI, or after it expires (5 seconds after generating prompt) the chatGPT API 
 will be called using your prompt, and the script will populate an excel sheet in the data directory with a name related to the provided task. 
    Sample: ![Sample Prompt for Embedded Software Output](images/embedded_software_job_output.png)
 
