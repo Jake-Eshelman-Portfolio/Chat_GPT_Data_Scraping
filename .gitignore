@@ -154,6 +154,13 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Ignore all files in the data folder
+data/*
+
+# But do not ignore the data folder itself or the .gitkeep file
+!data/
+!data/.gitkeep
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
