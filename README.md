@@ -6,7 +6,7 @@ The project was generated to assist with my personal research on topics, but I a
 2. Sourcing supplies for components, supply chain management
 3. Investor outreach
 4. Market research, competetor analysis
-5. Recruitment
+5. Customer relationship management (CRM)
 6. Job searching
 7. Finding organizations to get involved with related to a specific topic
 8. Sales and distribution channel expansion
