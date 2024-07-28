@@ -15,7 +15,6 @@ Ongoing Work:
 1. Addressing problems with hallucination or adding secondary validation to information
 2. Expand the script to enable handling larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
 3. Improving information specificty. For instance it often provides just a link to a company website instead of a relevent page of that website.
-4. Add feature to GUI to enable user to choose what version of GPT they use. Currently must be changed manually in the main.py script.
 
 ## Prerequisites
 - Python 3.x
