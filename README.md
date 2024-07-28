@@ -23,30 +23,29 @@ Ongoing Work:
 ## Installation
 
 1. **Clone the repository**:
-   git clone repository-url
-   cd repository-directory
+   - git clone repository-url
+   - cd repository-directory
    
 2. **Set up the virtual environment** (optional):
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use venv\\Scripts\\activate
+   - python -m venv venv
+   - source venv/bin/activate  # On Windows, use venv\\Scripts\\activate
    
 3. **Install the required packages**:
-   pip install openai openpyxl
+   - pip install openai openpyxl
    
 4. **Set up the configuration**:
-   - Create a .env file in the root directory in the format: 
-   OPENAI_API_KEY=your_API_key
+   - Create a .env file in the root directory in the format: OPENAI_API_KEY=your_API_key
    # IMPORTANT -- DO NOT REVEAL YOUR API KEY AS IT WILL GIVE OTHERS ACCESS TO YOUR OPENAI ACCOUNT. 
    - Ensure that it is placed only in the .env file you create.
 
 ## Usage
-1. Navigate to the scripts folder and run: python main.py
+1. Navigate to the scripts folder and run: `python main.py`
 2. You will be provided a GUI to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
-   Sample: ![Sample Prompt for Embedded Software](images/sample_prompt_embedded_software.png)
-   - Note: In the root directory there is a sample_prompt.txt file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
-3. After closing the GUI, or after it expires (5 seconds after generating prompt) the chatGPT API 
-will be called using your prompt, and the script will populate an excel sheet in the data directory with a name related to the provided task. 
-   Sample: ![Sample Prompt for Embedded Software Output](images/embedded_software_job_output.png)
+   <br>Sample: <img src="images/sample_prompt_embedded_software.png" alt="Sample Prompt for Embedded Software" width="300"/>
+   - Note: In the root directory there is a `sample_prompt.txt` file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
+3. After closing the GUI, or after it expires (5 seconds after generating the prompt), the ChatGPT API will be called using your prompt, and the script will populate an Excel sheet in the data directory with a name related to the provided task.
+   <br>Sample: <img src="images/embedded_software_job_output.png" alt="Sample Prompt for Embedded Software Output" width="300"/>
+
 
 ## Error Handling
 - If the response is not a valid JSON string or not a list of dictionaries, the script will print an error message and exit.
