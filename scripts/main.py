@@ -17,11 +17,18 @@ client = OpenAI(
     api_key=config.OPENAI_API_KEY
 )
 
+def extract_json_from_response(response):
+    start = response.find('[')
+    end = response.rfind(']') + 1
+    if start != -1 and end != -1:
+        return response[start:end]
+    return None
+
 # Currently using gpt-3.5-turbo but can change to other model options by changing the model field to gpt-4o for example
-def get_chatgpt_response(prompt):
+def get_chatgpt_response(prompt, model):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo", #gpt-4o, gpt-4o-mini gpt-4-turbo
+            model=model,
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -84,30 +91,44 @@ def main():
 
     # Read the generated prompt
     with open(prompt_path, 'r') as file:
-        prompt = file.read()
+        prompt_content = file.read()
 
-    data = []
-    response = get_chatgpt_response(prompt)
-
-    # Process the response and save it to an Excel file
+    # Extract the model and the prompt
     try:
-        response_list = json.loads(response.strip())
-        if isinstance(response_list, list) and len(response_list) > 0:
-            title_entry = response_list[0]
-            if "Title" in title_entry:
-                title = title_entry["Title"]
-                data = response_list[1:]
-                file_path = write_to_excel(data, title)
+        model_line = next(line for line in prompt_content.splitlines() if line.startswith("Model:"))
+        model = model_line.split("Model: ")[1].strip()
+        prompt = prompt_content.split("Task: ")[1].strip()  # Adjust according to your prompt structure
 
-                # Create a Tkinter root window (invisible) for the popup
-                root = tk.Tk()
-                root.withdraw()  
-                messagebox.showinfo("Success", f"Data successfully saved to {file_path}")
-                root.destroy()
+        # Call OpenAI with the given model and prompt
+        response = get_chatgpt_response(prompt, model)
+        print(f"Response: {response}")
+
+    except Exception as e:
+        print(f"Error parsing model or prompt: {e}")
+        return
+
+    try:
+        json_part = extract_json_from_response(response)
+        if json_part:
+            response_list = json.loads(json_part)
+            if isinstance(response_list, list) and len(response_list) > 0:
+                title_entry = response_list[0]
+                if "Title" in title_entry:
+                    title = title_entry["Title"]
+                    data = response_list[1:]
+                    file_path = write_to_excel(data, title)
+
+                    # Create a Tkinter root window (invisible) for the popup
+                    root = tk.Tk()
+                    root.withdraw()  
+                    messagebox.showinfo("Success", f"Data successfully saved to {file_path}")
+                    root.destroy()
+                else:
+                    print("Error: 'Title' field is missing in the response.")
             else:
-                print("Error: 'Title' field is missing in the response.")
+                print("Error: Response is not a list or is empty.")
         else:
-            print("Error: Response is not a list or is empty.")
+            print("Error: Could not extract JSON from the response.")
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON response: {e}")
 

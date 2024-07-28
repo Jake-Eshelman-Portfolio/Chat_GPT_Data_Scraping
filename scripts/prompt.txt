@@ -1,23 +1,24 @@
-Task: find bakery st louis
+Task: a b c
+b c
 
-Keywords: ['bread']
+Keywords: ['d']
 
 Extract:
 
-['business']
+['e']
 
-Model: gpt-4o
+Model: gpt-4o-mini
 
 Output Format: Provide the data in valid JSON format, structured as follows:
 [
     {"Title": "A title summarized from the task"},
     {
-        "business": "[response]"
+        "e": "[response]"
     },
     {
-        "business": "[response]"
+        "e": "[response]"
     }
 ]
 
 Important:
-3 resp
+
