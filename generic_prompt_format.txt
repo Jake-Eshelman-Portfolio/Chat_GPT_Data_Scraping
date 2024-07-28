@@ -1,0 +1,31 @@
+Task: [Action] [Subject] [Purpose]
+
+Keywords: ["word_1", "word_2"]
+
+Extract:
+
+[Header_1]
+[Header_2]
+[Summary] -- This should be formatted as a summary on the information gathered for the headers. It should include a link to the website of the organization or relevent party.
+
+Output Format: Provide the data in valid JSON format, structured as follows:
+[
+    {"Title": "Beach Cleanup Partnerships"},
+    {
+        "[Header_1]": "[response_1]",
+        "[Header_2]": "[response_2]",
+        "[Summary]": "[response_3]"
+    },
+    {
+        "[Header_1]": "[response_1]",
+        "[Header_2]": "[response_2]",
+        "[Summary]": "[response_3]"
+    }
+]
+
+
+Important:
+[provide x responses]
+[ensure that fields are always included, if the information of a field cannot be found then find another source]
+[do not include duplicate contacts in the same list]
+[ensure that the contacts are currently associated with the organization, not just mentioned in past associations]

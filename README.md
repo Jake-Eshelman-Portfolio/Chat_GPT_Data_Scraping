@@ -12,17 +12,13 @@ The project was generated to assist with my personal research on topics, but I a
 8. Sales and distribution channel expansion
 
 Ongoing Work:
-1. Making the fields it returns more easily configurable. Currently this must be done through modifying the prompt.txt
-2. Addressing problems with hallucination or adding secondary validation to information
-3. Making the prompt more customizable
-4. Allow better output format as currently new outputs overwrite old outputs.
-5. Expand the script to enable handling over larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
+1. Addressing problems with hallucination or adding secondary validation to information
+2. Expand the script to enable handling over larger number of outputs. Currently successful up to 10 contacts generated per prompt but ocassionally fails with larger generations.
 
 ## Prerequisites
-- Python 3.x
-- An OpenAI API key
-- openai Python package
-- openpyxl Python package
+- openai==0.10.2: For interacting with the OpenAI API. Install using `pip install openai`.
+- openpyxl==3.0.9: For reading and writing Excel files. Install using `pip install openpyxl`.
+- An OpenAI API key (https://platform.openai.com/playground)
 
 ## Installation
 
@@ -35,25 +31,22 @@ Ongoing Work:
    source venv/bin/activate  # On Windows, use venv\\Scripts\\activate
    
 3. **Install the required packages**:
-   pip install openai openpyxl pyhthon-dotenv
+   pip install openai openpyxl
    
 4. **Set up the configuration**:
-IMPORTANT -- DO NOT REVEAL YOUR API KEY. Ensure that it is placed only in the .env file you create.
-   - Create a .env file in the root directory in the format:
-    OPENAI_API_KEY=your_API_key
-
-5. **Prepare the prompt file**:
-   - Modify the prompt file to fit your specifications
+   - Create a .env file in the root directory in the format: 
+   OPENAI_API_KEY=your_API_key
+   IMPORTANT -- DO NOT REVEAL YOUR API KEY AS IT WILL GIVE OTHERS ACCESS TO YOUR ACCOUNT. 
+   - Ensure that it is placed only in the .env file you create.
 
 ## Usage
-1. Before using the script modify the prompt.txt to fit your needs. For an example see prompt.txt. JSON keys represent excel columns and the values 
-will be the data that ChatGPT provides. Overall the script will:
-
-   - Read the prompt from prompt.txt.
-   - Send the prompt to the OpenAI API and get a response.
-   - Convert the response (expected to be a JSON string) into a list of dictionaries.
-   - Write the response data to an Excel file located in the data directory, named responses.xlsx.
-
+1. Navigate to the scripts folder and run: python main.py
+2. You will be provided a gui to fill out that will populate the prompt. After generation, the prompt can be found in the root directory.
+   Sample: ![Sample Prompt for Embedded Software](images/sample_prompt_embedded_software.png)
+   - Note: In the root directory there is a sample_prompt.txt file to show the overall format and some basic suggestions to keep in mind when generating the prompt.
+3. After closing the gui, or after it expires (5 seconds after generating prompt) the chatGPT API 
+will be called using your prompt, and the script will populate an excel sheet in the data directory with a name related to the provided task. 
+   Sample: ![Sample Prompt for Embedded Software Output](images/embedded_software_job_output.png)
 
 ## Error Handling
 - If the response is not a valid JSON string or not a list of dictionaries, the script will print an error message and exit.
