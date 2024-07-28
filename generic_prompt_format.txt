@@ -6,7 +6,7 @@ Extract:
 
 [Header_1]
 [Header_2]
-[Summary] -- This should be formatted as a summary on the information gathered for the headers. It should include a link to the website of the organization or relevent party.
+[Summary]
 
 Output Format: Provide the data in valid JSON format, structured as follows:
 [
