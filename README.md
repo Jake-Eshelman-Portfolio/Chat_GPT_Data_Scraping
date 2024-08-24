@@ -1,5 +1,11 @@
 ## Overview
-This project uses OpenAI's API to generate responses using a chatGPT model selected by the user,  and saves the output to an Excel file. It provides the user with a GUI to generate a prompt which it then sends to the OpenAI API, and writes the response to an Excel file in the data directory. ChatGPT can make mistakes, be sure to validate important info. 
+This project uses OpenAI's API to generate responses using a chatGPT model selected by the user,  and saves the output to an Excel file. It provides the user with a GUI to generate a prompt which it then sends to the OpenAI API, and writes the response to an Excel file in the data directory. ChatGPT can make mistakes, be sure to validate important info. With this project I wanted to build skills:
+
+- Working with the OpenAI API
+- Parsing JSON files and data managment with python
+- GUI creation with Tkinter
+- Interfacing with excel through python
+- Prompt engineering
 
 The project was generated to assist with my personal research on topics, but I am currently working to customize it to be generalizable. Potentially useful topics to use it for:
 1. Identifying potential business partnership collaborators
